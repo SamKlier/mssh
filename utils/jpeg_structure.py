@@ -199,12 +199,12 @@ class JPEGTokenizer:
 
         validated = self._validate_results(df)
         eoi_address = validated['address'].iloc[-1]
-        slack = self._check_slack(eoi_address)
-        if slack is not None:
-            self.tokens = pd.concat([validated, pd.DataFrame({'token': [JPEGMarkers.SLACK], 'type': [MarkerTypes.OTHER],
-                                                              'address': [eoi_address + 2], 'value': [slack]})])
-        else:
-            self.tokens = validated
+        #slack = self._check_slack(eoi_address)
+        #if slack is not None:
+        #    self.tokens = pd.concat([validated, pd.DataFrame({'token': [JPEGMarkers.SLACK], 'type': [MarkerTypes.OTHER],
+        #                                                      'address': [eoi_address + 2], 'value': [slack]})])
+        #else:
+        self.tokens = validated
 
         if self.debug:
             pd.set_option('display.max_rows', None)
